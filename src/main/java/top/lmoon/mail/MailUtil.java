@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Properties;
 
 /**
- * aaa
+ * JavaMail 版本: 1.6.0 JDK 版本: JDK 1.7 以上（必须）
  */
 public class MailUtil {
 
@@ -45,7 +45,7 @@ public class MailUtil {
 		asyncSendErrorEmail(ExceptionUtil.getExceptionMessage(e));
 	}
 	
-	public static void asyncSendErrorEmail(String content){
+	public static void asyncSendErrorEmail(final String content){
 		Runnable r = new Runnable() {			
 			@Override
 			public void run() {
