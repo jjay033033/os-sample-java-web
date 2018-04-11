@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import top.lmoon.util.CloseUtil;
-
 public class TestServlet extends HttpServlet {
 
 	/**
@@ -25,20 +23,9 @@ public class TestServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		StringBuffer result = new StringBuffer();
-		PrintWriter out = null;
-		try {
-			// 获取输出对象
-			out = resp.getWriter();
-			result.append("hello test!");
-			out.print(result);
-			return;
-		} catch (Exception e) {
-			out.print(result);
-		} finally {
-			CloseUtil.closeSilently(out);
-		}
-
+		PrintWriter writer = resp.getWriter();
+		writer.print("hello test!");
+		writer.close();
 	}
 
 }
