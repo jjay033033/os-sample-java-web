@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import top.lmoon.util.CloseUtil;
 import top.lmoon.util.ParamUtil;
 
-public class TestServlet extends HttpServlet{
+public class TestServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -26,7 +26,6 @@ public class TestServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 
 		StringBuffer result = new StringBuffer();
 		PrintWriter out = null;
@@ -53,7 +52,6 @@ public class TestServlet extends HttpServlet{
 			method = ParamUtil.getParameter(req, "method", "");
 			String var = ParamUtil.getParameter(req, "var", "").trim();
 
-
 			result.append("hello test!");
 			out.print(result);
 			return;
@@ -62,9 +60,7 @@ public class TestServlet extends HttpServlet{
 		} finally {
 			CloseUtil.closeSilently(out);
 		}
-	
+
 	}
-	
-	
 
 }
